@@ -1,0 +1,265 @@
+:root {
+    --color-magenta: hsl(300, 43%, 22%);
+    --color-dark-magenta: hsl(303, 10%, 53%);
+    --color-light-magenta: hsl(300, 24%, 96%);
+    --color-soft-pink: hsl(333, 80%, 67%);
+    --color-white: hsl(0, 0%, 100%);
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 980px) {
+    .container {
+        width: 80%;
+        max-width: 1140px;
+    }
+}
+
+/* ************ */
+/* TYPOGRAPHY */
+/* ************ */
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Spartan', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    width: 100vw;
+    margin: 5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Spartan', sans-serif;
+    font-weight: 700;
+}
+
+/* ************ */
+/* MEDIA */
+/* ************ */
+.media {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.media__title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--color-light-magenta);
+    font-weight: 500;
+}
+
+.media__body {
+    margin: 0 2rem;
+    color: var(--color-soft-pink);
+    font-weight: 500;
+}
+
+.media__image {
+    width: 40px;
+    border-radius: 50%;
+}
+
+/* ************ */
+/* CARD */
+/* ************ */
+.card {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card--primary {
+    padding: 3rem 3rem;
+    background: var(--color-magenta);
+}
+
+.card--secondary {
+    padding: 1.5rem 2rem;
+    background: var(--color-light-magenta);
+}
+
+.card__body {
+    color: var(--color-white);
+    line-height: 1.8;
+    font-size: 1.2rem;
+}
+
+blockquote::before {
+    content: open-quote;
+}
+
+blockquote::after {
+    content: close-quote;
+}
+
+/* ************ */
+/* CARD BLOCK */
+/* ************ */
+.card-block {
+    margin-bottom: 3rem;
+}
+@media screen and (min-width: 980px) {
+    .card-block {
+        grid-area: 2 / 1 / 3 / 3;
+    }
+    .card-block .card:nth-of-type(1) {
+        grid-area: 1 / 1 / 4 / 2;
+    }
+
+    .card-block .card:nth-of-type(2) {
+        grid-area: 2 / 2 / 5 / 3;
+    }
+
+    .card-block .card:nth-of-type(3) {
+        grid-area: 3 / 3 / 6 / 4;
+    }
+}
+
+/* ************ */
+/* RATING */
+/* ************ */
+.rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rating__stars {
+    display: flex;
+    margin-bottom: 1rem;
+}
+.rating__stars img {
+    margin: 0 0.5rem;
+}
+
+.rating__text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-magenta);
+}
+
+@media screen and (min-width: 980px) {
+    .rating {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .rating__stars {
+        margin-bottom: 0;
+        margin-right: 3rem;
+    }
+}
+
+/* ************ */
+/* RATING BLOCK */
+/* ************ */
+.rating-block {
+    margin-bottom: 3rem;
+}
+
+@media screen and (min-width: 980px) {
+    .rating-block {
+        align-self: end;
+    }
+
+    .rating-block .card:nth-of-type(1) {
+        grid-area: 1 / 1 / 2 / 4;
+    }
+
+    .rating-block .card:nth-of-type(2) {
+        grid-area: 2 / 2 / 3 / 5;
+    }
+
+    .rating-block .card:nth-of-type(3) {
+        grid-area: 3 / 3 / 4 / 6;
+    }
+}
+
+/* ************ */
+/* HEADER */
+/* ************ */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header h1 {
+    padding: 0 2rem;
+    color: var(--color-magenta);
+}
+.header p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--color-dark-magenta);
+}
+
+@media screen and (min-width: 980px) {
+    .header {
+        text-align: left;
+    }
+
+    .header h1 {
+        padding: 0;
+        padding-right: 2rem;
+        color: var(--color-magenta);
+    }
+}
+
+/* ************ */
+/* GRID */
+/* ************ */
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.grid--mobile {
+    grid-template-rows: repeat(auto-fit, 1fr);
+}
+
+@media screen and (min-width: 980px) {
+    .grid--5x3 {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 1fr 5fr 1fr 1fr;
+        row-gap: 0;
+        column-gap: 2rem;
+    }
+    .grid--3x5 {
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr 5fr 1fr 1fr;
+        row-gap: 2rem;
+        column-gap: 0;
+    }
+    .grid--2x3 {
+        grid-template-columns: 1fr 2fr;
+    }
+}
